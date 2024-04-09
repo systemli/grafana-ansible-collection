@@ -16,6 +16,7 @@
     group: "grafana"
     mode: "0640"
   become: true
+  notify: "restart_grafana"
   listen: "provisioned dashboards changed"
 
 - name: "Set privileges on provisioned dashboards directory"
@@ -25,4 +26,5 @@
     recurse: false
     mode: "0755"
   become: true
+  notify: "restart_grafana"
   listen: "provisioned dashboards changed"
